@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Y2K TV Button - Glass chrome -->
+    <style name="AppTheme.Widget.Tv.Button" parent="AppTheme.Tv">
+        <item name="android:background">@drawable/bg_button_tv</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textColor">@drawable/color_button_text</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Y2K Mobile Primary Button - Hot pink pill -->
+    <style name="AppTheme.Widget.Mobile.Button" parent="AppTheme.Mobile">
+        <item name="android:background">@drawable/bg_button_mobile</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Y2K Mobile Secondary Button - Chrome outlined -->
+    <style name="AppTheme.Widget.Mobile.Button.Secondary" parent="AppTheme.Widget.Mobile.Button">
+        <item name="android:background">@drawable/bg_button_secondary_mobile</item>
+        <item name="android:textColor">?attr/y2k_accent_color</item>
+    </style>
+
+    <!-- Y2K Bottom Navigation Label Style -->
+    <style name="BottomNavLabelStyle" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Y2K Preference Theme Overlay for Leanback Amoled -->
+    <style name="PreferenceThemeOverlay.Leanback.Amoled" parent="PreferenceThemeOverlay.Leanback.Y2K" />
+
+</resources>

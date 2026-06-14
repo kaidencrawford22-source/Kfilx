@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Y2K Core Palette -->
+    <color name="y2k_hot_pink">#FF1493</color>
+    <color name="y2k_light_pink">#FFB6C1</color>
+    <color name="y2k_pink_glow">#FF69B4</color>
+    <color name="y2k_bubblegum">#FFD1DC</color>
+    <color name="y2k_blush">#FFE4E1</color>
+
+    <!-- Chrome / Silver -->
+    <color name="y2k_chrome">#C0C0C0</color>
+    <color name="y2k_chrome_light">#E8E8E8</color>
+    <color name="y2k_chrome_dark">#808080</color>
+    <color name="y2k_silver">#A8B4C8</color>
+    <color name="y2k_metallic">#B0B8C4</color>
+
+    <!-- Purple / Dark -->
+    <color name="y2k_deep_purple">#4A0E4E</color>
+    <color name="y2k_midnight">#0D0015</color>
+    <color name="y2k_navy">#0F0A1A</color>
+    <color name="y2k_gunmetal">#1A1C23</color>
+    <color name="y2k_violet">#8B5CF6</color>
+    <color name="y2k_orchid">#DA70D6</color>
+
+    <!-- Accents -->
+    <color name="y2k_cyan">#00FFFF</color>
+    <color name="y2k_gold">#FFD700</color>
+    <color name="y2k_coral">#FF6B8A</color>
+    <color name="y2k_magenta">#FF00FF</color>
+
+    <!-- Surface / Background -->
+    <color name="y2k_surface_bubblegum">#FFF5F7</color>
+    <color name="y2k_surface_frost">#F0F4FF</color>
+    <color name="y2k_surface_cyber">#1A0A2E</color>
+    <color name="y2k_surface_midnight">#1A1230</color>
+    <color name="y2k_surface_chrome">#242732</color>
+
+    <!-- Text -->
+    <color name="y2k_text_dark">#2D0A1E</color>
+    <color name="y2k_text_muted_pink">#7A4B6B</color>
+    <color name="y2k_text_light">#F0E6FF</color>
+    <color name="y2k_text_muted_purple">#B899D4</color>
+    <color name="y2k_text_muted_silver">#9AA5B8</color>
+    <color name="y2k_text_navy">#1A1A2E</color>
+    <color name="y2k_text_muted_blue">#6B7B8D</color>
+
+    <!-- Legacy (kept for compatibility) -->
+    <color name="ic_launcher_background">#000000</color>
+    <color name="ic_banner_background">#000000</color>
+    <color name="app_background">#0D0015</color>
+
+    <array name="genres">
+        <item>#FF1493</item>
+        <item>#FF69B4</item>
+        <item>#FFB6C1</item>
+        <item>#DA70D6</item>
+        <item>#8B5CF6</item>
+        <item>#FF6B8A</item>
+        <item>#C0C0C0</item>
+        <item>#FF00FF</item>
+        <item>#4A0E4E</item>
+        <item>#FFD1DC</item>
+        <item>#FF1493</item>
+        <item>#A8B4C8</item>
+        <item>#FF69B4</item>
+        <item>#DA70D6</item>
+        <item>#FFB6C1</item>
+        <item>#8B5CF6</item>
+        <item>#FF6B8A</item>
+        <item>#FF1493</item>
+        <item>#FF00FF</item>
+        <item>#FFB6C1</item>
+        <item>#DA70D6</item>
+        <item>#8B5CF6</item>
+        <item>#FF1493</item>
+        <item>#C0C0C0</item>
+        <item>#FF69B4</item>
+        <item>#FFD1DC</item>
+        <item>#FF6B8A</item>
+        <item>#DA70D6</item>
+        <item>#4A0E4E</item>
+        <item>#FF1493</item>
+        <item>#FFB6C1</item>
+        <item>#8B5CF6</item>
+        <item>#FF00FF</item>
+    </array>
+</resources>

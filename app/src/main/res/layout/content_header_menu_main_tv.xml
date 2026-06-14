@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tanasi.navigation.widget.NavigationSlideHeaderView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="24dp"
+    android:layout_marginBottom="16dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/iv_navigation_header_icon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:duplicateParentState="true"
+        android:foreground="@drawable/fg_navigation_header_icon_tv"
+        android:padding="4dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription,UseAppTint" />
+
+    <TextView
+        android:id="@+id/tv_navigation_header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:duplicateParentState="true"
+        android:maxLines="1"
+        android:paddingStart="0dp"
+        android:paddingEnd="10dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/iv_navigation_header_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_navigation_header_icon"
+        tools:text="Title" />
+
+    <TextView
+        android:id="@+id/tv_navigation_header_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:duplicateParentState="true"
+        android:maxLines="1"
+        android:paddingStart="0dp"
+        android:paddingEnd="10dp"
+        android:textColor="#FFB6C1"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/iv_navigation_header_icon"
+        app:layout_constraintTop_toBottomOf="@id/tv_navigation_header_title"
+        tools:ignore="SmallSp"
+        tools:text="Subtitle" />
+
+</com.tanasi.navigation.widget.NavigationSlideHeaderView>
