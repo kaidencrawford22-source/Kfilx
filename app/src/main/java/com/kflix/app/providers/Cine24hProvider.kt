@@ -8,7 +8,7 @@ import com.kflix.app.extractors.Extractor
 import com.kflix.app.models.*
 import com.kflix.app.utils.NetworkClient
 import com.kflix.app.utils.WebViewResolver
-import com.kflix.app.StreamFlixApp
+import com.kflix.app.KflixApp
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.sync.Mutex
@@ -32,7 +32,7 @@ object Cine24hProvider : Provider {
     private const val TAG = "Cine24hBypass"
 
     private fun getResolver(): WebViewResolver {
-        return webViewResolver ?: WebViewResolver(StreamFlixApp.instance).also {
+        return webViewResolver ?: WebViewResolver(KflixApp.instance).also {
             webViewResolver = it
         }
     }

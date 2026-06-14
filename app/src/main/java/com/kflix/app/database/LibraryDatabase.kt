@@ -38,7 +38,7 @@ abstract class LibraryDatabase : RoomDatabase() {
                 INSTANCE ?: Room.databaseBuilder(
                     context = context.applicationContext,
                     klass = LibraryDatabase::class.java,
-                    name = "streamflix_library.db"
+                    name = "kflix_library.db"
                 )
                     .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()

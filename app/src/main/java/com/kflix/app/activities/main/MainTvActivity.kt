@@ -48,7 +48,7 @@ class MainTvActivity : FragmentActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Il setup delle preferenze è già avvenuto in StreamFlixApp
+        // Il setup delle preferenze è già avvenuto in KflixApp
         setTheme(ThemeManager.tvThemeRes(UserPreferences.selectedTheme))
         
         super.onCreate(savedInstanceState)

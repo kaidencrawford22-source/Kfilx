@@ -9,7 +9,7 @@ import android.webkit.WebResourceResponse
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.kflix.app.StreamFlixApp
+import com.kflix.app.KflixApp
 import com.kflix.app.models.Video
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -37,7 +37,7 @@ class VidLinkExtractor : Extractor() {
     override suspend fun extract(link: String): Video {
         return withContext(Dispatchers.Main) {
             suspendCancellableCoroutine { continuation ->
-                val webView = WebView(StreamFlixApp.instance.applicationContext)
+                val webView = WebView(KflixApp.instance.applicationContext)
                 
                 // Configure WebView settings
                 webView.settings.javaScriptEnabled = true

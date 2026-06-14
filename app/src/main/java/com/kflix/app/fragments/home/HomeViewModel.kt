@@ -1,7 +1,7 @@
 package com.kflix.app.fragments.home
 
 import android.util.Log
-import com.kflix.app.StreamFlixApp
+import com.kflix.app.KflixApp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kflix.app.adapters.AppAdapter
@@ -369,7 +369,7 @@ class HomeViewModel(database: AppDatabase) : ViewModel() {
             return@launch
         }
         currentProvider = provider
-        val appContext = StreamFlixApp.instance.applicationContext
+        val appContext = KflixApp.instance.applicationContext
         val cachedCategories = HomeCacheStore.read(appContext, provider)
         if (!cachedCategories.isNullOrEmpty()) {
             _state.emit(State.SuccessLoading(cachedCategories))
@@ -392,7 +392,7 @@ class HomeViewModel(database: AppDatabase) : ViewModel() {
     }
 
     private fun loadUserDataCache(provider: Provider) {
-        val appContext = StreamFlixApp.instance.applicationContext
+        val appContext = KflixApp.instance.applicationContext
         val cached = UserDataCache.read(appContext, provider)
         _userDataCache.value = cached
 

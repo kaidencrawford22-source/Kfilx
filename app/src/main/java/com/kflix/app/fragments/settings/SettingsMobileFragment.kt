@@ -361,7 +361,7 @@ class SettingsMobileFragment : PreferenceFragmentCompat() {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://github.com/streamflix-reborn/streamflix")
+                    Uri.parse("https://github.com/kaidencrawford22-source/Kfilx")
                 )
             )
             true
@@ -684,7 +684,7 @@ class SettingsMobileFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>("key_backup_export_mobile")?.setOnPreferenceClickListener {
             val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-            val fileName = "streamflix_mobile_backup_$timestamp.json"
+            val fileName = "kflix_mobile_backup_$timestamp.json"
             exportBackupLauncher.launch(fileName)
             true
         }
@@ -728,7 +728,7 @@ class SettingsMobileFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>("key_backup_export_db_mobile")?.setOnPreferenceClickListener {
             val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-            val fileName = "streamflix_mobile_db_backup_$timestamp.zip"
+            val fileName = "kflix_mobile_db_backup_$timestamp.zip"
             exportDbBackupLauncher.launch(fileName)
             true
         }

@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 import android.util.Log
 import androidx.media3.ui.AspectRatioFrameLayout
 import androidx.media3.ui.CaptionStyleCompat
-import com.kflix.app.StreamFlixApp
+import com.kflix.app.KflixApp
 import com.kflix.app.BuildConfig
 import com.kflix.app.R
 import com.kflix.app.fragments.player.settings.PlayerSettingsView
@@ -74,7 +74,7 @@ object UserPreferences {
 
             Key.CURRENT_PROVIDER.setString(value?.name)
             runCatching {
-                ArtworkRepairScheduler.schedule(StreamFlixApp.instance, value)
+                ArtworkRepairScheduler.schedule(KflixApp.instance, value)
             }
             // Notify all ViewModels that the provider has changed
             ProviderChangeNotifier.notifyProviderChanged()
@@ -181,7 +181,7 @@ object UserPreferences {
             TMDb3.rebuildService()
             if (value) {
                 runCatching {
-                    ArtworkRepairScheduler.schedule(StreamFlixApp.instance, currentProvider)
+                    ArtworkRepairScheduler.schedule(KflixApp.instance, currentProvider)
                 }
             }
         }

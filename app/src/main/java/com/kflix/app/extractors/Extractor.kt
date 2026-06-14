@@ -215,9 +215,9 @@ abstract class Extractor {
             }
 
             if (foundExtractor != null) {
-                Log.i("StreamFlixES", "[EXTRACTOR] -> Starting: ${foundExtractor.name} (URL: $finalLink)")
+                Log.i("KflixES", "[EXTRACTOR] -> Starting: ${foundExtractor.name} (URL: $finalLink)")
                 val video = foundExtractor.extract(finalLink)
-                Log.i("StreamFlixES", "[VIDEO] -> Extracted: ${video.source}")
+                Log.i("KflixES", "[VIDEO] -> Extracted: ${video.source}")
                 return video
             }
 

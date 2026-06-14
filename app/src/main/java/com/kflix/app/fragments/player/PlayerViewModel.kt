@@ -104,8 +104,8 @@ class PlayerViewModel(
             if (servers.isEmpty()) throw Exception("No servers found")
             
             // LOG POTENZIATO: Mostra tutti i server disponibili per il player
-            Log.i("StreamFlixES", "[SERVERS LIST] -> Provider: ${UserPreferences.currentProvider!!.name}")
-            Log.i("StreamFlixES", "[SERVERS LIST] -> Found ${servers.size} servers: ${servers.joinToString { it.name }}")
+            Log.i("KflixES", "[SERVERS LIST] -> Provider: ${UserPreferences.currentProvider!!.name}")
+            Log.i("KflixES", "[SERVERS LIST] -> Found ${servers.size} servers: ${servers.joinToString { it.name }}")
 
             Log.d("PlayerViewModel", "Ricerca server completata: ${servers.size} server trovati")
             _state.emit(State.SuccessLoadingServers(servers))

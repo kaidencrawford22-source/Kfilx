@@ -7,7 +7,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.tanasi.retrofit_jsoup.converter.JsoupConverterFactory
-import com.kflix.app.StreamFlixApp
+import com.kflix.app.KflixApp
 import com.kflix.app.models.Video
 import com.kflix.app.utils.JsUnpacker
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -113,7 +113,7 @@ open class StreamWishExtractor : Extractor() {
     )
 
     protected var referer = ""
-    val context = StreamFlixApp.instance.applicationContext
+    val context = KflixApp.instance.applicationContext
 
     override suspend fun extract(link: String): Video {
         if (referer.isEmpty()) {

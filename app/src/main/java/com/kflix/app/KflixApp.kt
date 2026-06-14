@@ -19,9 +19,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
-class StreamFlixApp : Application() {
+class KflixApp : Application() {
     companion object {
-        lateinit var instance: StreamFlixApp
+        lateinit var instance: KflixApp
             private set
     }
 
@@ -35,14 +35,10 @@ class StreamFlixApp : Application() {
         super.onCreate()
         instance = this
 
-        // 0. Initialize Conscrypt for modern SSL on old Android
         Security.insertProviderAt(Conscrypt.newProvider(), 1)
 
-        // 1. Install ISRG Root X1 globally for Let's Encrypt. On Android < 7 (API 24)
-        // network_security_config.xml is not supported so the certificate must be injected manually.
         IsrgRootTrustProvider.install()
 
-        // 2. Inizializzazione preferenze (con applicationContext)
         UserPreferences.setup(this)
         DnsResolver.setDnsUrl(UserPreferences.dohProviderUrl)
 
@@ -66,4 +62,3 @@ class StreamFlixApp : Application() {
         }
     }
 }
-

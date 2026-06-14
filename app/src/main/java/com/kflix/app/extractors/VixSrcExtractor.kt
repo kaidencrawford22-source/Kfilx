@@ -133,7 +133,7 @@ class VixSrcExtractor : Extractor() {
                     val langCode = providerLang
                     val baseUri = response.request.url
                     
-                    Log.i("StreamFlixES", "[VixSrc] --- Processing START (Lang: $langCode) ---")
+                    Log.i("KflixES", "[VixSrc] --- Processing START (Lang: $langCode) ---")
 
                     val lines = playlistContent.lines()
                     val finalLines = mutableListOf<String>()
@@ -165,7 +165,7 @@ class VixSrcExtractor : Extractor() {
                             if (isTargetAudio) {
                                 patchedLine = patchedLine.replace("DEFAULT=NO", "DEFAULT=YES")
                                                          .replace("AUTOSELECT=NO", "AUTOSELECT=YES")
-                                Log.i("StreamFlixES", "[AUDIO] -> SET DEFAULT: $langCode")
+                                Log.i("KflixES", "[AUDIO] -> SET DEFAULT: $langCode")
                             }
                             finalLines.add(patchedLine)
                         } else if (patchedLine.startsWith("#EXT-X-MEDIA:TYPE=SUBTITLES")) {
@@ -187,14 +187,14 @@ class VixSrcExtractor : Extractor() {
                             if (isForced && isRightLanguage) {
                                 patchedLine = patchedLine.replace("DEFAULT=NO", "DEFAULT=YES")
                                                          .replace("AUTOSELECT=NO", "AUTOSELECT=YES")
-                                Log.i("StreamFlixES", "[SUBTITLE] -> ENABLED FORCED: $trackName")
+                                Log.i("KflixES", "[SUBTITLE] -> ENABLED FORCED: $trackName")
                             }
                             finalLines.add(patchedLine)
                         } else {
                             finalLines.add(patchedLine)
                         }
                     }
-                    Log.i("StreamFlixES", "[VixSrc] --- Processing END ---")
+                    Log.i("KflixES", "[VixSrc] --- Processing END ---")
                     
                     val base64Manifest = Base64.encodeToString(finalLines.joinToString("\n").toByteArray(), Base64.NO_WRAP)
                     videoSource = "data:application/vnd.apple.mpegurl;base64,$base64Manifest"

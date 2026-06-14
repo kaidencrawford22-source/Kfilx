@@ -748,7 +748,7 @@ class TmdbProvider(override val language: String) : Provider {
                     is Video.Type.Episode -> videoType.tvShow.title
                 }
                 
-                Log.i("StreamFlixES", "[SEARCH START] -> Target: $targetTitle (${if (videoType is Video.Type.Movie) "Movie" else "TV Show"})")
+                Log.i("KflixES", "[SEARCH START] -> Target: $targetTitle (${if (videoType is Video.Type.Movie) "Movie" else "TV Show"})")
 
                 // Funzione di matching rigorosa per i titoli e tipo
                 fun isMatch(item: AppAdapter.Item, target: String): Boolean {
@@ -799,7 +799,7 @@ class TmdbProvider(override val language: String) : Provider {
                                 
                                 if (id != null) {
                                     val matchTitle = if (bestMatch is Movie) bestMatch.title else (bestMatch as? TvShow)?.title
-                                    Log.i("StreamFlixES", "[MATCH FOUND] -> Provider: ${provider.name}, Matched: '$matchTitle', ID: $id")
+                                    Log.i("KflixES", "[MATCH FOUND] -> Provider: ${provider.name}, Matched: '$matchTitle', ID: $id")
                                     
                                     val allServers = provider.getServers(id, videoType)
                                     val filtered = allServers.filter { s ->
@@ -807,14 +807,14 @@ class TmdbProvider(override val language: String) : Provider {
                                         n.contains("[LAT]") || n.contains("[CAST]") || n.contains("[CAS]") || n.contains("[ES]") ||
                                         n.contains("(LAT)") || n.contains("(ESP)") || n.contains("LATINO") || n.contains("CASTELLANO")
                                     }
-                                    Log.i("StreamFlixES", "[SERVERS OK] -> ${provider.name}: ${filtered.size}/${allServers.size} servers kept")
+                                    Log.i("KflixES", "[SERVERS OK] -> ${provider.name}: ${filtered.size}/${allServers.size} servers kept")
                                     filtered
                                 } else {
-                                    Log.d("StreamFlixES", "[NO MATCH] -> ${provider.name} did not find a valid match for '$targetTitle'")
+                                    Log.d("KflixES", "[NO MATCH] -> ${provider.name} did not find a valid match for '$targetTitle'")
                                     emptyList()
                                 }
                             } catch (e: Exception) { 
-                                Log.e("StreamFlixES", "[PROVIDER ERROR] -> ${provider.name}: ${e.message}")
+                                Log.e("KflixES", "[PROVIDER ERROR] -> ${provider.name}: ${e.message}")
                                 emptyList() 
                             }
                         }
@@ -870,13 +870,13 @@ class TmdbProvider(override val language: String) : Provider {
             servers
         }
 
-        Log.i("StreamFlixES", "[SERVERS LIST] -> Found ${finalServers.size} servers: ${finalServers.joinToString { it.name }}")
+        Log.i("KflixES", "[SERVERS LIST] -> Found ${finalServers.size} servers: ${finalServers.joinToString { it.name }}")
         return finalServers.distinctBy { it.id }
     }
 
     override suspend fun getVideo(server: Video.Server): Video {
         val url = server.src.ifEmpty { server.id }
-        Log.i("StreamFlixES", "[SERVER] -> Using: ${server.name} (URL: $url)")
+        Log.i("KflixES", "[SERVER] -> Using: ${server.name} (URL: $url)")
         
         val video = when {
             server.video != null -> server.video!!
@@ -896,7 +896,7 @@ class TmdbProvider(override val language: String) : Provider {
                 if (isSpanish && isForced) {
                     sub.default = true
                     forcedFound = true
-                    Log.i("StreamFlixES", "[SUBTITLE] -> TMDb (es): Selected FORCED subtitle: ${sub.label}")
+                    Log.i("KflixES", "[SUBTITLE] -> TMDb (es): Selected FORCED subtitle: ${sub.label}")
                 } else {
                     sub.default = false
                 }
@@ -904,11 +904,11 @@ class TmdbProvider(override val language: String) : Provider {
             
             if (!forcedFound) {
                 video.subtitles.forEach { it.default = false }
-                Log.i("StreamFlixES", "[SUBTITLE] -> TMDb (es): No forced subs found, keeping them OFF")
+                Log.i("KflixES", "[SUBTITLE] -> TMDb (es): No forced subs found, keeping them OFF")
             }
         }
         
-        Log.i("StreamFlixES", "[VIDEO] -> Final source: ${video.source}")
+        Log.i("KflixES", "[VIDEO] -> Final source: ${video.source}")
         return video
     }
 

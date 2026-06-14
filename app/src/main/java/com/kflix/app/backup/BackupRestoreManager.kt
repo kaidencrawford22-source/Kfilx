@@ -521,7 +521,7 @@ class BackupRestoreManager(
 
     private fun addLibraryDatabaseToZip(zip: ZipOutputStream) {
         listOf("", "-wal", "-shm").forEach { suffix ->
-            val file = context.getDatabasePath("streamflix_library.db$suffix")
+            val file = context.getDatabasePath("kflix_library.db$suffix")
             if (!file.exists()) return@forEach
             zip.putNextEntry(ZipEntry("databases/${file.name}"))
             file.inputStream().use { input -> input.copyTo(zip) }

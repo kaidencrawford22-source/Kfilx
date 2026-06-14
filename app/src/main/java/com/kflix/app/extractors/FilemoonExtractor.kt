@@ -37,21 +37,21 @@ open class FilemoonExtractor : Extractor() {
         val currentDomain = Regex("""(https?://[^/]+)""").find(link)?.groupValues?.get(1)
             ?: throw Exception("Could not extract Base URL")
 
-        Log.i("StreamFlixES", "[Filemoon] Extraction started for: $link")
+        Log.i("KflixES", "[Filemoon] Extraction started for: $link")
 
         // 1. Details
         val detailsUrl = "$currentDomain/api/videos/$videoId/embed/details"
-        Log.i("StreamFlixES", "[Filemoon] Details Request: $detailsUrl")
+        Log.i("KflixES", "[Filemoon] Details Request: $detailsUrl")
         val details = service.getDetails(detailsUrl)
         val embedFrameUrl = details.embed_frame_url ?: throw Exception("embed_frame_url not found")
         
         val playbackDomain = Regex("""(https?://[^/]+)""").find(embedFrameUrl)?.groupValues?.get(1)
             ?: throw Exception("Could not extract playback domain")
-        Log.i("StreamFlixES", "[Filemoon] Playback Domain detected: $playbackDomain")
+        Log.i("KflixES", "[Filemoon] Playback Domain detected: $playbackDomain")
 
         // 2. Challenge
         val challengeUrl = "$playbackDomain/api/videos/access/challenge"
-        Log.i("StreamFlixES", "[Filemoon] Challenge Request: $challengeUrl")
+        Log.i("KflixES", "[Filemoon] Challenge Request: $challengeUrl")
         val challenge = service.getChallenge(challengeUrl, mapOf(
             "Referer" to embedFrameUrl,
             "Origin" to playbackDomain,
@@ -63,12 +63,12 @@ open class FilemoonExtractor : Extractor() {
         
         // Always generate a new viewerId
         var viewerId = UUID.randomUUID().toString().replace("-", "")
-        Log.i("StreamFlixES", "[Filemoon] Challenge Data: ID=$challengeId, Viewer=$viewerId")
+        Log.i("KflixES", "[Filemoon] Challenge Data: ID=$challengeId, Viewer=$viewerId")
 
         // 3. Attestation
         val attestation = generateAttestation(nonce)
         val attestUrl = "$playbackDomain/api/videos/access/attest"
-        Log.i("StreamFlixES", "[Filemoon] Attest Request: $attestUrl")
+        Log.i("KflixES", "[Filemoon] Attest Request: $attestUrl")
         
         val attestPayload: Map<String, kotlin.Any> = mapOf(
             "viewer_id" to viewerId,
@@ -108,11 +108,11 @@ open class FilemoonExtractor : Extractor() {
         deviceId = attestResponse.device_id ?: deviceId
         val confidence = attestResponse.confidence ?: throw Exception("No confidence in response")
 
-        Log.i("StreamFlixES", "[Filemoon] Attest Token obtained (Confidence: $confidence)")
+        Log.i("KflixES", "[Filemoon] Attest Token obtained (Confidence: $confidence)")
 
         // 4. Playback
         val playbackUrl = "$playbackDomain/api/videos/$videoId/embed/playback"
-        Log.i("StreamFlixES", "[Filemoon] Playback Request: $playbackUrl")
+        Log.i("KflixES", "[Filemoon] Playback Request: $playbackUrl")
         val playbackPayload: Map<String, kotlin.Any> = mapOf(
             "fingerprint" to mapOf(
                 "token" to token,
@@ -130,7 +130,7 @@ open class FilemoonExtractor : Extractor() {
         ))
 
         val playbackData = playbackResponse.playback ?: throw Exception("No playback data")
-        Log.i("StreamFlixES", "[Filemoon] Decrypting data...")
+        Log.i("KflixES", "[Filemoon] Decrypting data...")
         val decryptedJson = decryptPlayback(playbackData)
         
         val jsonObject = JSONObject(decryptedJson)
@@ -138,7 +138,7 @@ open class FilemoonExtractor : Extractor() {
             ?: throw Exception("No sources found")
         val sourceUrl = sources.getJSONObject(0).getString("url")
 
-        Log.i("StreamFlixES", "[Filemoon] SOURCE FOUND: $sourceUrl")
+        Log.i("KflixES", "[Filemoon] SOURCE FOUND: $sourceUrl")
 
         return Video(
             source = sourceUrl,

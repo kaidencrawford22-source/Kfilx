@@ -2,7 +2,7 @@ package com.kflix.app.providers
 
 import android.util.Log
 import androidx.core.net.toUri
-import com.kflix.app.StreamFlixApp
+import com.kflix.app.KflixApp
 import com.kflix.app.adapters.AppAdapter
 import com.kflix.app.extractors.Extractor
 import com.kflix.app.models.*
@@ -31,7 +31,7 @@ object PoseidonHD2Provider : Provider {
     private var webViewResolver: WebViewResolver? = null
 
     private fun getResolver(): WebViewResolver {
-        return webViewResolver ?: WebViewResolver(StreamFlixApp.instance).also {
+        return webViewResolver ?: WebViewResolver(KflixApp.instance).also {
             webViewResolver = it
         }
     }

@@ -6,7 +6,7 @@ import android.net.Uri
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.kflix.app.StreamFlixApp
+import com.kflix.app.KflixApp
 import com.kflix.app.models.Video
 import com.kflix.app.utils.JsUnpacker
 import com.tanasi.retrofit_jsoup.converter.JsoupConverterFactory
@@ -32,7 +32,7 @@ class UpzoneExtractor : Extractor() {
         "https://upzone.link"
     )
 
-    private val context: Context = StreamFlixApp.instance.applicationContext
+    private val context: Context = KflixApp.instance.applicationContext
     private val userAgent =
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 

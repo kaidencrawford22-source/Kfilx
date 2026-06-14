@@ -537,7 +537,7 @@ class StreamingCommunityProvider(private val _language: String? = null) : Provid
     }
 
     override suspend fun getServers(id: String, videoType: Video.Type): List<Video.Server> {
-        Log.i("StreamFlixES", "[PROV] -> StreamingCommunity: getServers for $id")
+        Log.i("KflixES", "[PROV] -> StreamingCommunity: getServers for $id")
         val base = "https://$domain/"
         
         val isEpisode = videoType is Video.Type.Episode || id.contains("?episode_id=")
@@ -556,12 +556,12 @@ class StreamingCommunityProvider(private val _language: String? = null) : Provid
             return listOf()
         }
 
-        Log.i("StreamFlixES", "[PROV] -> Found Vixcloud src: $src")
+        Log.i("KflixES", "[PROV] -> Found Vixcloud src: $src")
         return listOf(Video.Server(id = id, name = "Vixcloud", src = src))
     }
 
     override suspend fun getVideo(server: Video.Server): Video {
-        Log.i("StreamFlixES", "[SERVER] -> StreamingCommunity: Using ${server.name} (Src: ${server.src})")
+        Log.i("KflixES", "[SERVER] -> StreamingCommunity: Using ${server.name} (Src: ${server.src})")
         
         val base = "https://$domain/"
         val isEpisode = server.id.contains("?episode_id=")

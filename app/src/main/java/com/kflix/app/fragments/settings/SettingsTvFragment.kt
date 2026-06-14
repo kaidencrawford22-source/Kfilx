@@ -411,7 +411,7 @@ class SettingsTvFragment : LeanbackPreferenceFragmentCompat() {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://github.com/streamflix-reborn/streamflix")
+                    Uri.parse("https://github.com/kaidencrawford22-source/Kfilx")
                 )
             )
             true
@@ -691,7 +691,7 @@ class SettingsTvFragment : LeanbackPreferenceFragmentCompat() {
 
         findPreference<Preference>("key_backup_export_tv")?.setOnPreferenceClickListener {
             val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-            val fileName = "streamflix_tv_backup_$timestamp.json"
+            val fileName = "kflix_tv_backup_$timestamp.json"
             showBackupExportOptions(fileName)
             true
         }
@@ -797,7 +797,7 @@ class SettingsTvFragment : LeanbackPreferenceFragmentCompat() {
 
         findPreference<Preference>("key_backup_export_db_tv")?.setOnPreferenceClickListener {
             val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-            val fileName = "streamflix_tv_db_backup_$timestamp.zip"
+            val fileName = "kflix_tv_db_backup_$timestamp.zip"
             showDatabaseBackupExportOptions(fileName)
             true
         }
