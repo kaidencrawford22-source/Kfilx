@@ -45,6 +45,10 @@ class ProfilePickerViewModel(application: Application) : AndroidViewModel(applic
 
     fun deleteProfile(id: String) = viewModelScope.launch(Dispatchers.IO) {
         profileDao.delete(id)
+        val prefs = com.kflix.app.utils.UserPreferences
+        if (prefs.currentProfileId == id) {
+            prefs.currentProfileId = null
+        }
         val remaining = profileDao.getAllSync()
         if (remaining.isNotEmpty() && !remaining.any { it.isDefault }) {
             profileDao.setDefault(remaining.first().id)

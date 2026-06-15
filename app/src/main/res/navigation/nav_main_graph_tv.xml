@@ -236,7 +236,7 @@
         <action
             android:id="@+id/action_profile_picker_to_home"
             app:destination="@id/home"
-            app:popUpTo="@id/home"
+            app:popUpTo="@id/providers"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

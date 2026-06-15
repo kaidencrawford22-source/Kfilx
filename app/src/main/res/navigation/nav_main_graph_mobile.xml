@@ -388,7 +388,7 @@
             app:exitAnim="@anim/nav_slide_out_left"
             app:popEnterAnim="@anim/nav_slide_in_left"
             app:popExitAnim="@anim/nav_slide_out_right"
-            app:popUpTo="@id/home"
+            app:popUpTo="@id/providers"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>
