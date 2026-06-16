@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <ImageView
+        android:id="@+id/iv_carousel_poster"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/bg_item_poster_rounded"
+        android:clipToOutline="true"
+        android:foreground="@drawable/fg_item_poster_chrome"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="W,2:3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ProgressBar
+        android:id="@+id/pb_carousel_download"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:progressTint="?attr/y2k_accent_color"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/tv_carousel_title"
+        app:layout_constraintEnd_toEndOf="@id/iv_carousel_poster"
+        app:layout_constraintStart_toStartOf="@id/iv_carousel_poster"
+        tools:progress="45"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tv_carousel_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lines="2"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="5"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_carousel_poster"
+        app:layout_constraintEnd_toEndOf="@id/iv_carousel_poster"
+        app:layout_constraintStart_toStartOf="@id/iv_carousel_poster"
+        tools:text="Movie Title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
